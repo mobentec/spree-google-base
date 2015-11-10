@@ -1,9 +1,11 @@
 module Spree
   Product.class_eval do
-    scope :google_base_scope, -> { preload(:taxons, {:master => :images}) }
+    scope :google_base_scope, -> { preload(:taxons, {:master => :images}).uniq }
     
     def google_base_description
-      description
+      # description is limited to 5000 characters
+      # see https://support.google.com/merchants/answer/188494 for details
+      description[0...5000]
     end
     
     def google_base_condition
