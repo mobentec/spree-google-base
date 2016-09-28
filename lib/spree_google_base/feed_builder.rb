@@ -61,7 +61,7 @@ module SpreeGoogleBase
     end
     
     def path
-      file_path = Rails.root.join('tmp')
+      file_path = Rails.root.join('public')
       if defined?(Apartment)
         file_path = file_path.join(Apartment::Tenant.current_tenant)
         FileUtils.mkdir_p(file_path)
