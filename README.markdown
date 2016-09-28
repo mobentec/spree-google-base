@@ -14,7 +14,7 @@ INSTALLATION
 
 2. Install the extension with one of the following commands
 
-      Add `gem "spree_google_base", :git => 'git://github.com/jumph4x/spree-google-base.git'` to Gemfile
+      Add `gem "spree_google_base", :git => 'git://github.com/mobentec/spree-google-base.git'` to Gemfile
       Run `bundle install`
       Run `rails g spree_google_base:install`
       Run `rake db:migrate`
@@ -23,7 +23,9 @@ INSTALLATION
 
 4. Set preferences in spree admin panel (/admin/google_base_settings) for the feed title, public domain, feed description, ftp login and password. FTP login is not required - you may schedule upload from the public directory.
 
-5. Issue the command `bundle exec rake spree_google_base:generate_and_transfer` to generate and upload the feed.
+5. Issue the command `bundle exec rake spree_google_base:generate_test_file` to generate and upload the feed.
+
+file will be in /root/mystore/public
 
 If you receive an error `501 Syntax error in parameters or arguments`, the FTP server is angry at you for not configuring your username\password correctly.
 
