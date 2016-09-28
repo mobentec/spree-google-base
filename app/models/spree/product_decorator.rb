@@ -29,7 +29,19 @@ module Spree
 
       pp ? pp.value : nil
     end
+    
+    def google_base_upc
+      # Taken from github.com/romul/spree-solr-search
+      # app/models/spree/product_decorator.rb
+      #
+      pp = Spree::ProductProperty.joins(:property)
+                                 .where(:product_id => self.id)
+                                 .where(:spree_properties => {:name => 'upc'})
+                                 .first
 
+      pp ? pp.value : nil
+    end
+    
     def google_base_product_type
       return google_base_taxon_type unless Spree::GoogleBase::Config[:enable_taxon_mapping]
 
